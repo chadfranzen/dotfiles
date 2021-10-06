@@ -1,0 +1,80 @@
+{
+    "workbench.colorTheme": "Gruvbox Dark Hard",
+    "prettier.singleQuote": true,
+    "eslint.alwaysShowStatus": true,
+    "vim.highlightedyank.enable": true,
+    "vim.insertModeKeyBindings": [
+        {
+            "before": ["j", "k"],
+            "after": ["<Esc>"],
+        }
+    ],
+    "vim.normalModeKeyBindings": [
+        {
+            "before": ["<leader>", "W"],
+            "after": ["<leader>","<leader>","<leader>", "b", "d", "w"],
+        },
+        {
+            "before": ["<leader>", "k"],
+            "after": ["<leader>", "<leader>", "k"],
+        },
+        {
+            "before": ["<leader>", "j"],
+            "after": ["<leader>", "<leader>", "j"],
+        },
+        {
+            "before": ["<leader>", "l"],
+            "after": ["<leader>","<leader>", "w"],
+        },
+        {
+            "before": ["<leader>", "h"],
+            "after": ["<leader>","<leader>", "b"],
+        },
+        {
+            "before": ["{"],
+            "commands": [
+                "workbench.action.previousEditorInGroup",
+            ],
+        },
+        {
+            "before": ["}"],
+            "commands": [
+                "workbench.action.nextEditorInGroup",
+            ],
+        },
+        {
+            "before": ["<C-l>"],
+            "commands": [
+                "workbench.action.focusRightGroup",
+            ],
+        },
+        {
+            "before": ["<C-h>"],
+            "commands": [
+                "workbench.action.focusLeftGroup",
+            ],
+        },
+        {
+            "before": ["<C-j>"],
+            "commands": [
+                "workbench.action.focusBelowGroup",
+            ],
+        },
+        {
+            "before": ["<C-k>"],
+            "commands": [
+                "workbench.action.focusAboveGroup",
+            ],
+        },
+        {
+            "before": ["<leader>", "x"],
+            "commands": [
+                "workbench.action.closeActiveEditor",
+            ],
+        },
+    ],
+    "vim.easymotion": true,
+    "vim.surround": true,
+    "vim.leader": "<space>",
+    "editor.minimap.enabled": false,
+}
