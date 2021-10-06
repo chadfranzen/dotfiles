@@ -4,9 +4,9 @@ filetype off                  " required
 " WARNING
 " This will require a bit of external setup to work properly
 " You'll need to have:
-" - Fira Code with macligature support
-" - A YouCompleteMe server
-" - Airline/powerline fonts
+" - Pathogen installed manually
+" - Vundle installed manually
+" - Fira Code installed manually
 
 " Vundle setup
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -14,7 +14,6 @@ call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'scrooloose/nerdtree' " File explorer
-Plugin 'scrooloose/syntastic' " Syntax checking ***REQUIRES EXTERNAL SETUP***
 Plugin 'tpope/vim-surround' " Easily surround text with characters
 Plugin 'vim-airline/vim-airline' " Better status bar
 Plugin 'easymotion/vim-easymotion' " Key commands for easy cursor movement
@@ -33,7 +32,6 @@ Plugin 'sheerun/vim-polyglot' " Auto-download syntax highlights
 Plugin 'KabbAmine/yowish.vim' " Color scheme
 Plugin 'morhetz/gruvbox' " Color scheme
 Plugin 'ctrlpvim/ctrlp.vim' " File search
-Plugin 'Valloric/YouCompleteMe' " Autocompletion ***REQUIRES EXTERNAL SETUP***
 Plugin 'Xuyuanp/nerdtree-git-plugin' " Git support for NERDTree
 Plugin 'mileszs/ack.vim' " Faster grep
 Plugin 'burke/matcher' " Better Ctrl-P matching
@@ -45,7 +43,6 @@ Plugin 'heavenshell/vim-jsdoc' " Generate JSDoc comments based on fn signature
 Plugin 'sickill/vim-pasta' " Auto-indent after pasting
 Plugin 'Valloric/MatchTagAlways' " Always highlight enclosing HTML tags
 Plugin 'kshenoy/vim-signature' " Visual marks
-Plugin 'mhinz/vim-startify' " Start screen
 Plugin 'severin-lemaignan/vim-minimap' " Sublime-like minimap
 
 " All of your Plugins must be added before the following line
@@ -195,27 +192,12 @@ let g:nerdtree_tabs_smart_startup_focus = 2
 " Toggle minimap on and off
 let g:minimap_toggle='<leader>mm'
 
-let g:startify_relative_path = 1 " Use relative paths where appropriate
-let g:startify_session_persistence = 1 " Autosave sessions on quit
-let g:startify_change_to_vcs_root = 1 " Change working dir to git root on open
-let g:startify_change_to_dir = 0
-let g:startify_list_order = ['sessions', 'files', 'dir', 'bookmarks', 
-    \ 'commands']
-
 " For heavenshell/vim-jsdoc
 let g:jsdoc_allow_input_prompt = 1
 
 " Syntastic shouldn't bug us about Angular
 let g:syntastic_html_tidy_ignore_errors=['proprietary attribute']
 let g:syntastic_mode_map = { "mode": "passive" }
-
-" Make Startify and NERDTree play nice with each other
-autocmd VimEnter *
-            \   if !argc()
-            \ |   Startify
-            \ |   NERDTree
-            \ |   wincmd w
-            \ | endif
 
 " Reqd for vim-javacomplete2
 autocmd FileType java setlocal omnifunc=javacomplete#Complete
@@ -259,8 +241,6 @@ end
 """""""""""""""""""""""
 " Visuals
 """""""""""""""""""""""
-
-set macligatures " allow font ligatures for Fira Code
 set linespace=2
 set guifont=Fira\ Code:h12
 set number
