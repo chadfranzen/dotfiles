@@ -1,0 +1,7 @@
+command_timeout = 1000
+
+[nodejs]
+symbol = "Node "
+
+[package]
+disabled = true
