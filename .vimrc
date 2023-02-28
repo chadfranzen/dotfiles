@@ -4,54 +4,53 @@ filetype off                  " required
 " WARNING
 " This will require a bit of external setup to work properly
 " You'll need to have:
-" - Pathogen installed manually
-" - Vundle installed manually
+" - vim-plug installed manually
 " - Fira Code installed manually
 
-" Vundle setup
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+call plug#begin()
+" The default plugin directory will be as follows:
+"   - Vim (Linux/macOS): '~/.vim/plugged'
+"   - Vim (Windows): '~/vimfiles/plugged'
+"   - Neovim (Linux/macOS/Windows): stdpath('data') . '/plugged'
+" You can specify a custom plugin directory by passing it as the argument
+"   - e.g. `call plug#begin('~/.vim/plugged')`
+"   - Avoid using standard Vim directory names like 'plugin'
 
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'scrooloose/nerdtree' " File explorer
-Plugin 'tpope/vim-surround' " Easily surround text with characters
-Plugin 'vim-airline/vim-airline' " Better status bar
-Plugin 'easymotion/vim-easymotion' " Key commands for easy cursor movement
-Plugin 'haya14busa/incsearch.vim' " Highlight searches incrementally
-Plugin 'haya14busa/incsearch-easymotion.vim' " Add easymotion support
-Plugin 'osyo-manga/vim-over' " Visual search & replace
-Plugin 'jistr/vim-nerdtree-tabs' " Use NERDTree in a side panel
-Plugin 'godlygeek/csapprox' " Make GVim color schemes work in terminal
-Plugin 'airblade/vim-gitgutter' " Git gutter
-Plugin 'xolox/vim-misc' " Adds utility functions for Vim scripts
-Plugin 'jiangmiao/auto-pairs' " Add closing characters for parentheses + more
-Plugin 'nathanaelkane/vim-indent-guides' " Add vertical lines as indent guides
-Plugin 'scrooloose/nerdcommenter' " Easy comment/uncomment
-Plugin 'mattn/emmet-vim' " Shortcuts for writing HTML
-Plugin 'sheerun/vim-polyglot' " Auto-download syntax highlights
-Plugin 'KabbAmine/yowish.vim' " Color scheme
-Plugin 'morhetz/gruvbox' " Color scheme
-Plugin 'ctrlpvim/ctrlp.vim' " File search
-Plugin 'Xuyuanp/nerdtree-git-plugin' " Git support for NERDTree
-Plugin 'mileszs/ack.vim' " Faster grep
-Plugin 'burke/matcher' " Better Ctrl-P matching
-Plugin 'tpope/vim-fugitive' " Git wrapper
-Plugin 'flowtype/vim-flow' " Support for Flow (JavaScript static typechecker)
-Plugin 'artur-shaik/vim-javacomplete2' " Autocomplete for Java libraries
-Plugin 'alvan/vim-closetag' " Auto-close HTML tags
-Plugin 'heavenshell/vim-jsdoc' " Generate JSDoc comments based on fn signature
-Plugin 'sickill/vim-pasta' " Auto-indent after pasting
-Plugin 'Valloric/MatchTagAlways' " Always highlight enclosing HTML tags
-Plugin 'kshenoy/vim-signature' " Visual marks
-Plugin 'severin-lemaignan/vim-minimap' " Sublime-like minimap
+Plug 'scrooloose/nerdtree' " File explorer
+Plug 'tpope/vim-surround' " Easily surround text with characters
+Plug 'vim-airline/vim-airline' " Better status bar
+Plug 'easymotion/vim-easymotion' " Key commands for easy cursor movement
+Plug 'haya14busa/incsearch.vim' " Highlight searches incrementally
+Plug 'haya14busa/incsearch-easymotion.vim' " Add easymotion support
+Plug 'osyo-manga/vim-over' " Visual search & replace
+Plug 'jistr/vim-nerdtree-tabs' " Use NERDTree in a side panel
+Plug 'godlygeek/csapprox' " Make GVim color schemes work in terminal
+Plug 'airblade/vim-gitgutter' " Git gutter
+Plug 'xolox/vim-misc' " Adds utility functions for Vim scripts
+Plug 'jiangmiao/auto-pairs' " Add closing characters for parentheses + more
+Plug 'nathanaelkane/vim-indent-guides' " Add vertical lines as indent guides
+Plug 'scrooloose/nerdcommenter' " Easy comment/uncomment
+Plug 'mattn/emmet-vim' " Shortcuts for writing HTML
+Plug 'sheerun/vim-polyglot' " Auto-download syntax highlights
+Plug 'KabbAmine/yowish.vim' " Color scheme
+Plug 'morhetz/gruvbox' " Color scheme
+Plug 'ctrlpvim/ctrlp.vim' " File search
+Plug 'Xuyuanp/nerdtree-git-plugin' " Git support for NERDTree
+Plug 'mileszs/ack.vim' " Faster grep
+Plug 'burke/matcher' " Better Ctrl-P matching
+Plug 'tpope/vim-fugitive' " Git wrapper
+Plug 'alvan/vim-closetag' " Auto-close HTML tags
+Plug 'sickill/vim-pasta' " Auto-indent after pasting
+Plug 'Valloric/MatchTagAlways' " Always highlight enclosing HTML tags
+Plug 'kshenoy/vim-signature' " Visual marks
+Plug 'severin-lemaignan/vim-minimap' " Sublime-like minimap
 
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
-" To ignore plugin indent changes, instead use:
-"filetype plugin on
-
-execute pathogen#infect()
+" Initialize plugin system
+" - Automatically executes `filetype plugin indent on` and `syntax enable`.
+call plug#end()
+" You can revert the settings after the call like so:
+"   filetype indent off   " Disable file-type-specific indentation
+"   syntax off            " Disable syntax highlighting
 
 """""""""""""""""""""""
 " Vim Configuration
@@ -108,9 +107,6 @@ nmap <leader>. ]`
 """""""""""""""""""""""
 " Plugin Configuration
 """""""""""""""""""""""
-
-" Don't do Flow typechecking on save
-let g:flow#enable = 0
 
 " Setup some default ignores for Ctrl-P
 let g:ctrlp_custom_ignore = {
@@ -191,9 +187,6 @@ let g:nerdtree_tabs_smart_startup_focus = 2
 
 " Toggle minimap on and off
 let g:minimap_toggle='<leader>mm'
-
-" For heavenshell/vim-jsdoc
-let g:jsdoc_allow_input_prompt = 1
 
 " Syntastic shouldn't bug us about Angular
 let g:syntastic_html_tidy_ignore_errors=['proprietary attribute']
